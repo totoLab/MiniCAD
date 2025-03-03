@@ -59,7 +59,7 @@ public class Lexer {
                 case '(': currentSymbol = Symbols.OPEN_PARENTHESIS; break;
                 case ')': currentSymbol = Symbols.CLOSE_PARENTHESIS; break;
                 case ',': currentSymbol = Symbols.COMMA; break;
-                case '"': currentSymbol = Symbols.QUOTE; break;
+                case '"': currentSymbol = Symbols.QUOTE; value = tokenizer.sval; break;
                 default : currentSymbol = Symbols.INVALID; break;
             }
         } catch (IOException e) {
