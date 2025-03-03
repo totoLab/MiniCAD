@@ -4,12 +4,20 @@ import java.beans.Expression;
 
 public class Move implements ExpressionIF {
 
-    long id;
-    Pos pos;
+    private long id;
+    private Pos pos;
 
     public Move(long id, Pos pos) {
         this.id = id;
         this.pos = new Pos(pos.getX(), pos.getY());
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Pos getPos() {
+        return pos;
     }
 
     @Override
