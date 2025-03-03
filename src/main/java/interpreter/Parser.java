@@ -25,6 +25,7 @@ public class Parser {
             case DELETE: expression = deleteCommand(); break;
             case MOVE: expression = moveCommand(); break;
             case OFFSET: expression = offsetCommand(); break;
+            case SCALE: expression = scaleCommand(); break;
             default: throw new SyntaxException("This is not a recognized token " + currentToken);
         }
         return expression;
@@ -55,6 +56,17 @@ public class Parser {
         long id = (long) Double.parseDouble(lexer.getValue());
         Pos pos = pos();
         return new MoveOffset(id, pos);
+    }
+
+    private ExpressionIF scaleCommand() {
+        SyntaxException exception = new SyntaxException("You need to specify an ID and a scale factor like this 'ID FLOAT'");
+        long id;
+        double scale;
+        if (!lexer.nextToken().equals(Symbols.INTEGER)) throw exception;
+        else id = (long) Double.parseDouble(lexer.getValue());
+        if (!canBeFloat(lexer.nextToken())) throw exception;
+        else scale = Double.parseDouble(lexer.getValue());
+        return new Scale(id, scale);
     }
 
     private ExpressionIF typeConstructor() {
