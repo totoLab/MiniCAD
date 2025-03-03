@@ -14,4 +14,13 @@ public class New implements ExpressionIF {
     public CustomResult interpret(String input) {
         return null;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(type.toString());
+        sb.append(" ");
+        sb.append(position.toString());
+        return sb.toString();
+    }
 }

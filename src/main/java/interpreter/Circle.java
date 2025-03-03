@@ -12,4 +12,9 @@ public class Circle extends Shape {
     public CustomResult interpret(String input) {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Circle (%f)", radius.getValue());
+    }
 }

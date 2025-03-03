@@ -14,4 +14,9 @@ public class Img extends Shape {
     public CustomResult interpret(String input) {
         return null;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Image at %s", path.toString());
+    }
 }
