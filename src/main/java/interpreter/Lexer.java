@@ -26,6 +26,10 @@ public class Lexer {
         tokenizer.quoteChar('"');
     }
 
+    private boolean isInteger(double number) {
+        return number == Math.round(number);
+    }
+
     public Symbols nextToken() {
         try {
             switch (tokenizer.nextToken()) {
@@ -54,7 +58,11 @@ public class Lexer {
                     break;
                 case StreamTokenizer.TT_NUMBER:
                     numberValue = tokenizer.nval;
-                    currentSymbol = Symbols.FLOAT;
+                    if (isInteger(numberValue)) {
+                        currentSymbol = Symbols.INTEGER;
+                    } else {
+                        currentSymbol = Symbols.FLOAT;
+                    }
                     break;
                 case '(': currentSymbol = Symbols.OPEN_PARENTHESIS; break;
                 case ')': currentSymbol = Symbols.CLOSE_PARENTHESIS; break;
@@ -68,8 +76,12 @@ public class Lexer {
         return currentSymbol;
     }
 
+    boolean canBeFloat(Symbols symbol) {
+        return symbol.equals(Symbols.FLOAT) || symbol.equals(Symbols.INTEGER);
+    }
+
     public String getValue() {
-        if (currentSymbol.equals(Symbols.FLOAT)) return numberValue + "";
+        if (canBeFloat(currentSymbol)) return numberValue + "";
         return value;
     }
 }

@@ -22,6 +22,7 @@ public class Parser {
         Symbols currentToken;
         switch ((currentToken = lexer.nextToken())) {
             case NEW: expression = createCommand(); break;
+            case DELETE: expression = deleteCommand(); break;
             default: throw new SyntaxException("This is not a recognized token " + currentToken);
         }
         return expression;
@@ -32,6 +33,12 @@ public class Parser {
         Pos pos = pos();
         New createCommand = new New(typeConstructor, pos);
         return createCommand;
+    }
+
+    private ExpressionIF deleteCommand() {
+        Symbols symbol = lexer.nextToken();
+        if (!symbol.equals(Symbols.INTEGER)) throw new SyntaxException("You need to specify an ID to delete 'del ID'");
+        return new Delete((long) Double.parseDouble(lexer.getValue()));
     }
 
     private ExpressionIF typeConstructor() {
@@ -46,15 +53,19 @@ public class Parser {
         return expression;
     }
 
+    boolean canBeFloat(Symbols symbol) {
+        return symbol.equals(Symbols.FLOAT) || symbol.equals(Symbols.INTEGER);
+    }
+
     private Shape circle() {
-        SyntaxException exception = new SyntaxException("You must provide a float to instantiate a circle like this (FLOAT) (FLOAT, FLOAT)");
+        SyntaxException exception = new SyntaxException("You must provide a float to instantiate a circle like this (FLOAT)");
         String value;
         if (!lexer.nextToken().equals(Symbols.OPEN_PARENTHESIS)) throw exception;
-        if (!lexer.nextToken().equals(Symbols.FLOAT)) throw exception;
+        if (!canBeFloat(lexer.nextToken())) throw exception;
         else value = lexer.getValue();
         if (!lexer.nextToken().equals(Symbols.CLOSE_PARENTHESIS)) throw exception;
-        Double d = Double.parseDouble(value);
-        return new Circle(new PosFloat(d.floatValue()));
+        float number = Float.parseFloat(value);
+        return new Circle(new PosFloat(number));
     }
 
     private Shape rectangle() {
@@ -78,10 +89,10 @@ public class Parser {
         List<Float> numbers = new ArrayList<>();
         SyntaxException exception = new SyntaxException("You must provide a pos like this (FLOAT, FLOAT)");
         if (!lexer.nextToken().equals(Symbols.OPEN_PARENTHESIS)) throw exception;
-        if (!lexer.nextToken().equals(Symbols.FLOAT)) throw exception;
+        if (!canBeFloat(lexer.nextToken())) throw exception;
         else numbers.add(Float.parseFloat(lexer.getValue()));
         if (!lexer.nextToken().equals(Symbols.COMMA)) throw exception;
-        if (!lexer.nextToken().equals(Symbols.FLOAT)) throw exception;
+        if (!canBeFloat(lexer.nextToken())) throw exception;
         else numbers.add(Float.parseFloat(lexer.getValue()));
         if (!lexer.nextToken().equals(Symbols.CLOSE_PARENTHESIS)) throw exception;
 
