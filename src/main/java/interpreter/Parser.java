@@ -24,6 +24,7 @@ public class Parser {
             case NEW: expression = createCommand(); break;
             case DELETE: expression = deleteCommand(); break;
             case MOVE: expression = moveCommand(); break;
+            case OFFSET: expression = offsetCommand(); break;
             default: throw new SyntaxException("This is not a recognized token " + currentToken);
         }
         return expression;
@@ -47,6 +48,13 @@ public class Parser {
         long id = (long) Double.parseDouble(lexer.getValue());
         Pos pos = pos();
         return new Move(id, pos);
+    }
+
+    private ExpressionIF offsetCommand() {
+        if (!lexer.nextToken().equals(Symbols.INTEGER)) throw new SyntaxException("You need to specify an ID and a new position to move 'mv INT (FLOAT, FLOAT)'");
+        long id = (long) Double.parseDouble(lexer.getValue());
+        Pos pos = pos();
+        return new MoveOffset(id, pos);
     }
 
     private ExpressionIF typeConstructor() {
