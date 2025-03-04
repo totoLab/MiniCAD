@@ -29,6 +29,7 @@ public class Parser {
             case SCALE: expression = scaleCommand(); break;
             case LIST: expression = listCommand(); break;
             case GROUP: expression = groupCommand(); break;
+            case UNGROUP: expression = ungroupCommand(); break;
             default: throw new SyntaxException("This is not a recognized token " + currentToken);
         }
         return expression;
@@ -114,6 +115,12 @@ public class Parser {
         }
         if (lexer.currentSymbol.equals(Symbols.COMMA)) throw exception;
         return new Group(ids);
+    }
+
+    private ExpressionIF ungroupCommand() {
+        if (!lexer.nextToken().equals(Symbols.INTEGER)) throw new SyntaxException("You need to specify an ID to ungroup 'ID'");
+        long id = (long) Double.parseDouble(lexer.getValue());
+        return new Ungroup(id);
     }
 
     private ExpressionIF typeConstructor() {
