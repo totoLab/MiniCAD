@@ -30,6 +30,8 @@ public class Parser {
             case LIST: expression = listCommand(); break;
             case GROUP: expression = groupCommand(); break;
             case UNGROUP: expression = ungroupCommand(); break;
+            case AREA: expression = areaCommand(); break;
+            case PERIMETER: expression = perimeterCommand(); break;
             default: throw new SyntaxException("This is not a recognized token " + currentToken);
         }
         return expression;
@@ -121,6 +123,60 @@ public class Parser {
         if (!lexer.nextToken().equals(Symbols.INTEGER)) throw new SyntaxException("You need to specify an ID to ungroup 'ID'");
         long id = (long) Double.parseDouble(lexer.getValue());
         return new Ungroup(id);
+    }
+
+    private ExpressionIF areaCommand() {
+        List<Symbols> shapes = new ArrayList<>();
+        shapes.add(Symbols.CIRCLE);
+        shapes.add(Symbols.RECTANGLE);
+        shapes.add(Symbols.IMG);
+
+        Symbols argument = lexer.nextToken();
+        SyntaxException exception = new SyntaxException("You need to specify something to list 'ID' | 'SHAPE' | 'all'");
+        switch (argument) {
+            case INTEGER: {
+                String argumentValue = lexer.getValue();
+                long id = (long) Double.parseDouble(argumentValue);;
+                return new AreaID(id);
+            }
+            case ALL: {
+                return new AreaSymbol(argument);
+            }
+            default: {
+                if (shapes.contains(argument)) {
+                    return new AreaSymbol(argument);
+                } else {
+                    throw exception;
+                }
+            }
+        }
+    }
+
+    private ExpressionIF perimeterCommand() {
+        List<Symbols> shapes = new ArrayList<>();
+        shapes.add(Symbols.CIRCLE);
+        shapes.add(Symbols.RECTANGLE);
+        shapes.add(Symbols.IMG);
+
+        Symbols argument = lexer.nextToken();
+        SyntaxException exception = new SyntaxException("You need to specify something to list 'ID' | 'SHAPE' | 'all'");
+        switch (argument) {
+            case INTEGER: {
+                String argumentValue = lexer.getValue();
+                long id = (long) Double.parseDouble(argumentValue);;
+                return new PerimeterID(id);
+            }
+            case ALL: {
+                return new PerimeterSymbol(argument);
+            }
+            default: {
+                if (shapes.contains(argument)) {
+                    return new PerimeterSymbol(argument);
+                } else {
+                    throw exception;
+                }
+            }
+        }
     }
 
     private ExpressionIF typeConstructor() {
