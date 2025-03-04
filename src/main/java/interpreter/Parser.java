@@ -1,6 +1,5 @@
 package interpreter;
 
-import java.awt.*;
 import java.io.Reader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,6 +28,7 @@ public class Parser {
             case OFFSET: expression = offsetCommand(); break;
             case SCALE: expression = scaleCommand(); break;
             case LIST: expression = listCommand(); break;
+            case GROUP: expression = groupCommand(); break;
             default: throw new SyntaxException("This is not a recognized token " + currentToken);
         }
         return expression;
@@ -98,6 +98,22 @@ public class Parser {
             }
         }
 
+    }
+
+    private ExpressionIF groupCommand() {
+        SyntaxException exception = new SyntaxException("You need to specify a list to group 'ID, ID, ..., ID' with at least one");
+        List<Long> ids = new ArrayList<>();
+        if (!lexer.nextToken().equals(Symbols.INTEGER)) throw exception;
+        else ids.add((long) Double.parseDouble(lexer.getValue()));
+        while (true) {
+            if (!(
+                    lexer.nextToken().equals(Symbols.COMMA) &&
+                    lexer.nextToken().equals(Symbols.INTEGER)
+            )) break;
+            else ids.add((long) Double.parseDouble(lexer.getValue()));
+        }
+        if (lexer.currentSymbol.equals(Symbols.COMMA)) throw exception;
+        return new Group(ids);
     }
 
     private ExpressionIF typeConstructor() {
