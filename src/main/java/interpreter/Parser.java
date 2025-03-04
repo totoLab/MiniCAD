@@ -7,6 +7,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import static interpreter.Utils.*;
+
 public class Parser {
 
     Lexer lexer;
@@ -26,6 +28,7 @@ public class Parser {
             case MOVE: expression = moveCommand(); break;
             case OFFSET: expression = offsetCommand(); break;
             case SCALE: expression = scaleCommand(); break;
+            case LIST: expression = listCommand(); break;
             default: throw new SyntaxException("This is not a recognized token " + currentToken);
         }
         return expression;
@@ -69,6 +72,34 @@ public class Parser {
         return new Scale(id, scale);
     }
 
+    private ExpressionIF listCommand() {
+        List<Symbols> shapes = new ArrayList<>();
+        shapes.add(Symbols.CIRCLE);
+        shapes.add(Symbols.RECTANGLE);
+        shapes.add(Symbols.IMG);
+
+        Symbols argument = lexer.nextToken();
+        SyntaxException exception = new SyntaxException("You need to specify something to list 'ID' | 'SHAPE' | 'all' | 'groups'");
+        switch (argument) {
+            case INTEGER: {
+                String argumentValue = lexer.getValue();
+                long id = Integer.parseInt(argumentValue);
+                return new ListID(id);
+            }
+            case ALL: case GROUPS: {
+                return new ListSymbol(argument);
+            }
+            default: {
+                if (shapes.contains(argument)) {
+                    return new ListSymbol(argument);
+                } else {
+                    throw exception;
+                }
+            }
+        }
+
+    }
+
     private ExpressionIF typeConstructor() {
         Symbols symbol = lexer.nextToken();
         ExpressionIF expression;
@@ -79,10 +110,6 @@ public class Parser {
             default -> throw new SyntaxException("You must provide a valid object");
         }
         return expression;
-    }
-
-    boolean canBeFloat(Symbols symbol) {
-        return symbol.equals(Symbols.FLOAT) || symbol.equals(Symbols.INTEGER);
     }
 
     private Shape circle() {

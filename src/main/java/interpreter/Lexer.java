@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
 
+import static interpreter.Utils.*;
+
 public class Lexer {
 
     StreamTokenizer tokenizer;
@@ -26,10 +28,6 @@ public class Lexer {
         tokenizer.quoteChar('"');
     }
 
-    private boolean isInteger(double number) {
-        return number == Math.round(number);
-    }
-
     public Symbols nextToken() {
         try {
             switch (tokenizer.nextToken()) {
@@ -47,8 +45,8 @@ public class Lexer {
                         case "ls": currentSymbol = Symbols.LIST; break;
                         case "all": currentSymbol = Symbols.ALL; break;
                         case "groups": currentSymbol = Symbols.GROUPS; break;
-                        case "group": currentSymbol = Symbols.GROUP; break;
-                        case "ungroup": currentSymbol = Symbols.UNGROUP; break;
+                        case "grp": currentSymbol = Symbols.GROUP; break;
+                        case "ungrp": currentSymbol = Symbols.UNGROUP; break;
                         case "area": currentSymbol = Symbols.AREA; break;
                         case "perimeter": currentSymbol = Symbols.PERIMETER; break;
                         case "circle": currentSymbol = Symbols.CIRCLE; break;
@@ -74,10 +72,6 @@ public class Lexer {
             currentSymbol = Symbols.EOF;
         }
         return currentSymbol;
-    }
-
-    boolean canBeFloat(Symbols symbol) {
-        return symbol.equals(Symbols.FLOAT) || symbol.equals(Symbols.INTEGER);
     }
 
     public String getValue() {
