@@ -1,6 +1,4 @@
-package interpreter;
-
-import java.beans.Expression;
+package is.interpreter;
 
 public class Move implements ExpressionIF {
 

@@ -1,10 +1,10 @@
-package interpreter;
+package is.interpreter;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
 
-import static interpreter.Utils.*;
+import static is.interpreter.Utils.*;
 
 public class Lexer {
 

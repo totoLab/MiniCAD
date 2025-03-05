@@ -1,4 +1,4 @@
-package interpreter;
+package is.interpreter;
 
 import java.io.Reader;
 import java.nio.file.Path;
@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static interpreter.Utils.*;
+import static is.interpreter.Utils.*;
 
 public class Parser {
 

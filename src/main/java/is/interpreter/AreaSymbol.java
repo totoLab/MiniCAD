@@ -1,10 +1,10 @@
-package interpreter;
+package is.interpreter;
 
-public class PerimeterSymbol extends Perimeter {
+public class AreaSymbol extends Area {
 
     private Symbols symbol;
 
-    public PerimeterSymbol(Symbols symbol) {
+    public AreaSymbol(Symbols symbol) {
         this.symbol = symbol;
     }
 

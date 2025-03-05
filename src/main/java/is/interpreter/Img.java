@@ -1,4 +1,4 @@
-package interpreter;
+package is.interpreter;
 
 import java.nio.file.Path;
 

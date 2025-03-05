@@ -1,10 +1,10 @@
-package interpreter;
+package is.interpreter;
 
-public class PerimeterID extends Perimeter {
+public class ListID extends List {
 
     private long id;
 
-    public PerimeterID(long id) {
+    public ListID(long id) {
         this.id = id;
     }
 

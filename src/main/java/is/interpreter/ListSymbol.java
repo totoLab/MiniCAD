@@ -1,10 +1,10 @@
-package interpreter;
+package is.interpreter;
 
-public class AreaSymbol extends Area {
+public class ListSymbol extends List{
 
-    private Symbols symbol;
+    Symbols symbol;
 
-    public AreaSymbol(Symbols symbol) {
+    public ListSymbol(Symbols symbol) {
         this.symbol = symbol;
     }
 

@@ -1,4 +1,4 @@
-package interpreter;
+package is.interpreter;
 
 public class PosFloat implements ExpressionIF {
 

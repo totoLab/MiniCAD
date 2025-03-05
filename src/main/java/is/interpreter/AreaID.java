@@ -1,10 +1,10 @@
-package interpreter;
+package is.interpreter;
 
-public class Ungroup implements ExpressionIF {
+public class AreaID extends Area {
 
-    Long id;
+    private long id;
 
-    public Ungroup(Long id) {
+    public AreaID(long id) {
         this.id = id;
     }
 
