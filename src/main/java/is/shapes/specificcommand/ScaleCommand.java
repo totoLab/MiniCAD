@@ -3,12 +3,12 @@ package is.shapes.specificcommand;
 import is.command.Command;
 import is.shapes.model.GraphicObject;
 
-public class ZoomCommand implements Command {
+public class ScaleCommand implements Command {
 	
 	private final GraphicObject object;
 	private final double factor;
 
-	public ZoomCommand(GraphicObject obj, double factor) {
+	public ScaleCommand(GraphicObject obj, double factor) {
 		object = obj;
 		this.factor = factor;
 		
