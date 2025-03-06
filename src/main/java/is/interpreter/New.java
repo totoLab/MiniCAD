@@ -3,6 +3,7 @@ package is.interpreter;
 
 import is.command.Command;
 import is.command.CommandHandler;
+import is.command.HistoryCommandHandler;
 import is.command.NaiveCommandHandler;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectFactory;

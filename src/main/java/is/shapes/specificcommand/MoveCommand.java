@@ -1,7 +1,9 @@
 package is.shapes.specificcommand;
 
 import is.command.Command;
+import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
+import is.shapes.model.GraphicObjectSingleton;
 
 import java.awt.geom.Point2D;
 
@@ -23,7 +25,7 @@ public class MoveCommand implements Command {
 
 	@Override
 	public boolean doIt() {
-
+		System.out.printf("%s with id %d moved to %s\n", object.getType(), ((AbstractGraphicObject) object).getId(), newPos);
 		object.moveTo(newPos);
 
 		return true;
