@@ -1,6 +1,7 @@
 package is.shapes.specificcommand;
 
 import is.command.Command;
+import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
 
 public class ScaleCommand implements Command {
@@ -16,6 +17,7 @@ public class ScaleCommand implements Command {
 
 	@Override
 	public boolean doIt() {
+		System.out.printf("%s with id %d scaled with a factor of %f\n", object.getType(), ((AbstractGraphicObject) object).getId(), factor);
 		object.scale(factor);
 		return true;
 	}
