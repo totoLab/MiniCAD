@@ -92,7 +92,7 @@ public class Parser {
         switch (argument) {
             case INTEGER: {
                 String argumentValue = lexer.getValue();
-                long id = Integer.parseInt(argumentValue);
+                long id = (long) Double.parseDouble(argumentValue);
                 return new ListID(id);
             }
             case ALL: case GROUPS: {
