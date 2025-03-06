@@ -17,6 +17,10 @@ public class Img extends Shape {
 
     }
 
+    public Path getPath() {
+        return path;
+    }
+
     @Override
     public String toString() {
         return String.format("Image at %s", path.toString());

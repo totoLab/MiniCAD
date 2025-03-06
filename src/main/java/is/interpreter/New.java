@@ -1,5 +1,14 @@
 package is.interpreter;
 
+
+import is.command.Command;
+import is.command.CommandHandler;
+import is.command.NaiveCommandHandler;
+import is.shapes.model.AbstractGraphicObject;
+import is.shapes.model.GraphicObjectFactory;
+import is.shapes.specificcommand.NewObjectCmd;
+import is.shapes.view.GraphicObjectPanel;
+
 public class New implements ExpressionIF {
 
     Shape type;
@@ -11,8 +20,11 @@ public class New implements ExpressionIF {
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
+        AbstractGraphicObject obj = GraphicObjectFactory.createGraphicObject(type, position);
+        Command command = new NewObjectCmd(gpanel, obj);
+        CommandHandler commandHandler = new NaiveCommandHandler();
+        commandHandler.handle(command);
     }
 
     @Override

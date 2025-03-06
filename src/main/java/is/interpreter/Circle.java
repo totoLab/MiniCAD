@@ -15,6 +15,10 @@ public class Circle extends Shape {
 
     }
 
+    public PosFloat getRadius() {
+        return radius;
+    }
+
     @Override
     public String toString() {
         return String.format("Circle (%f)", radius.getValue());
