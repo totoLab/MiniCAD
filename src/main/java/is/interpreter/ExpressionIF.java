@@ -1,6 +1,8 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public interface ExpressionIF {
 
-    CustomResult interpret(String input);
+    void interpret(String input, GraphicObjectPanel gpanel);
 }

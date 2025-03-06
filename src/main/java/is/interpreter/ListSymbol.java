@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public class ListSymbol extends List{
 
     Symbols symbol;
@@ -9,7 +11,6 @@ public class ListSymbol extends List{
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
     }
 }

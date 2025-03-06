@@ -1,5 +1,8 @@
 package is.shapes.model;
 
+import is.interpreter.ExpressionIF;
+import is.shapes.view.GraphicObjectPanel;
+
 import java.awt.Dimension;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
@@ -69,4 +72,5 @@ public final  class CircleObject extends AbstractGraphicObject {
 	public double getRadius() {
 		return radius;
 	}
+
 }

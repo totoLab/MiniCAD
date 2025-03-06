@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public class Rectangle extends Shape {
 
     Pos pos;
@@ -10,7 +12,7 @@ public class Rectangle extends Shape {
 
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
+
     }
 }

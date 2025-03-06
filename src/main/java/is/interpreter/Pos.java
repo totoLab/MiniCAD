@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public class Pos implements ExpressionIF {
 
     private PosFloat x, y;
@@ -23,7 +25,6 @@ public class Pos implements ExpressionIF {
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return new CustomResult();
+    public void interpret(String input, GraphicObjectPanel gpanel) {
     }
 }

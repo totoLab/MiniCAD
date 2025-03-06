@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public class Scale implements ExpressionIF {
 
     private long id;
@@ -11,7 +13,7 @@ public class Scale implements ExpressionIF {
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
+
     }
 }

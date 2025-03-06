@@ -2,10 +2,10 @@ package is.interpreter;
 
 public class New implements ExpressionIF {
 
-    ExpressionIF type;
-    ExpressionIF position;
+    Shape type;
+    Pos position;
 
-    public New(ExpressionIF typeConstructor, Pos pos) {
+    public New(Shape typeConstructor, Pos pos) {
         this.type = typeConstructor;
         this.position = pos;
     }

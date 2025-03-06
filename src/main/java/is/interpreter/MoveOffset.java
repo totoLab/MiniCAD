@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public class MoveOffset extends Move {
 
     public MoveOffset(long id, Pos pos) {
@@ -7,7 +9,6 @@ public class MoveOffset extends Move {
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
     }
 }

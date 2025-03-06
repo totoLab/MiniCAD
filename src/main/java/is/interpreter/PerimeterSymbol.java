@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public class PerimeterSymbol extends Perimeter {
 
     private Symbols symbol;
@@ -9,7 +11,6 @@ public class PerimeterSymbol extends Perimeter {
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
     }
 }

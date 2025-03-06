@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 import java.nio.file.Path;
 
 public class Img extends Shape {
@@ -11,8 +13,8 @@ public class Img extends Shape {
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
+
     }
 
     @Override

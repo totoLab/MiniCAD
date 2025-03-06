@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public class Ungroup implements ExpressionIF {
 
     Long id;
@@ -9,7 +11,7 @@ public class Ungroup implements ExpressionIF {
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
+
     }
 }

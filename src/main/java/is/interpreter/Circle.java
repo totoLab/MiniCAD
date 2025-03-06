@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.view.GraphicObjectPanel;
+
 public class Circle extends Shape {
 
     PosFloat radius;
@@ -9,8 +11,8 @@ public class Circle extends Shape {
     }
 
     @Override
-    public CustomResult interpret(String input) {
-        return null;
+    public void interpret(String input, GraphicObjectPanel gpanel) {
+
     }
 
     @Override
