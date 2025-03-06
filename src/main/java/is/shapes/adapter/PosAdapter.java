@@ -26,4 +26,9 @@ public class PosAdapter extends Point2D {
     public void setLocation(double v, double v1) {
 
     }
+
+    @Override
+    public String toString() {
+        return pos.toString();
+    }
 }

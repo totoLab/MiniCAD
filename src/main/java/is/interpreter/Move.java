@@ -11,8 +11,8 @@ import is.shapes.view.GraphicObjectPanel;
 
 public class Move implements ExpressionIF {
 
-    private long id;
-    private Pos pos;
+    protected long id;
+    protected Pos pos;
 
     public Move(long id, Pos pos) {
         this.id = id;
