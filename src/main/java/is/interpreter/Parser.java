@@ -1,5 +1,7 @@
 package is.interpreter;
 
+import is.shapes.model.CircleObject;
+
 import java.io.Reader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,6 +18,10 @@ public class Parser {
     public Parser(Reader reader) {
         lexer = new Lexer(reader);
         root = constructExpression();
+    }
+
+    public ExpressionIF getExpression() {
+        return root;
     }
 
     private ExpressionIF constructExpression() {
@@ -38,7 +44,7 @@ public class Parser {
     }
 
     private ExpressionIF createCommand() {
-        ExpressionIF typeConstructor = typeConstructor();
+        Shape typeConstructor = typeConstructor();
         Pos pos = pos();
         New createCommand = new New(typeConstructor, pos);
         return createCommand;
@@ -179,16 +185,16 @@ public class Parser {
         }
     }
 
-    private ExpressionIF typeConstructor() {
+    private Shape typeConstructor() {
         Symbols symbol = lexer.nextToken();
-        ExpressionIF expression;
+        Shape shape;
         switch (symbol) {
-            case CIRCLE -> expression = circle();
-            case RECTANGLE -> expression = rectangle();
-            case IMG -> expression = img();
+            case CIRCLE -> shape = circle();
+            case RECTANGLE -> shape = rectangle();
+            case IMG -> shape = img();
             default -> throw new SyntaxException("You must provide a valid object");
         }
-        return expression;
+        return shape;
     }
 
     private Shape circle() {
