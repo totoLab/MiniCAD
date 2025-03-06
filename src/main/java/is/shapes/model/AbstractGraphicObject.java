@@ -6,7 +6,19 @@ import java.util.List;
 
 public abstract class AbstractGraphicObject implements GraphicObject, Cloneable {
 
+	private long id;
+
+	public static long ID;
+
 	private  List<GraphicObjectListener> listeners = new LinkedList<>();
+
+	public AbstractGraphicObject() {
+		id = ID++;
+	}
+
+	public long getId() {
+		return id;
+	}
 
 	@Override
 	public void addGraphicObjectListener(GraphicObjectListener l) {
