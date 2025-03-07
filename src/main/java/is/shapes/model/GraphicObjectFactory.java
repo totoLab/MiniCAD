@@ -8,6 +8,7 @@ import is.interpreter.Shape;
 
 import javax.swing.*;
 import java.awt.geom.Point2D;
+import java.util.List;
 
 public class GraphicObjectFactory {
 
@@ -33,5 +34,9 @@ public class GraphicObjectFactory {
         }
 
         throw new UnsupportedOperationException("Unsupported shape type: " + type.getClass().getName());
+    }
+
+    public static AbstractGraphicObject createGroup(List<Long> ids) {
+        return new GroupObject(ids);
     }
 }
