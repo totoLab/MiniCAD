@@ -19,14 +19,7 @@ public class ListSymbol extends is.interpreter.List {
 
     @Override
     public void interpret(String input, GraphicObjectPanel gpanel) {
-        GraphicObjectSingleton singleton = GraphicObjectSingleton.getInstance();
-        List<AbstractGraphicObject> objs;
-        switch (symbol) {
-            case ALL -> objs = singleton.getAll();
-            case GROUPS -> objs = singleton.getAllGroups();
-            default -> objs = singleton.getByType(symbol.name());
-        }
-        Command command = new ListCommand(objs);
+        Command command = new ListCommand(symbol);
         CommandHandler handler = new NaiveCommandHandler();
         handler.handle(command);
     }

@@ -18,8 +18,7 @@ public class ListID extends List {
 
     @Override
     public void interpret(String input, GraphicObjectPanel gpanel) {
-        AbstractGraphicObject obj = GraphicObjectSingleton.getInstance().getById(id);
-        Command command = new ListCommand(obj);
+        Command command = new ListCommand(id);
         CommandHandler handler = new NaiveCommandHandler();
         handler.handle(command);
     }

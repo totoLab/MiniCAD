@@ -1,22 +1,31 @@
 package is.shapes.specificcommand;
 
 import is.command.Command;
+import is.interpreter.Symbols;
 import is.shapes.model.AbstractGraphicObject;
+import is.shapes.model.GraphicObjectSingleton;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class ListCommand implements Command {
 
-    private final List<AbstractGraphicObject> objects;
+    private final List<AbstractGraphicObject> objects = new ArrayList<>();
+    private final GraphicObjectSingleton singleton = GraphicObjectSingleton.getInstance();
 
-    public ListCommand(AbstractGraphicObject go) {
-        this.objects = new ArrayList<>();
-        this.objects.add(go);
+    public ListCommand(long id) {
+        this.objects.add(singleton.getById(id));
     }
 
-    public ListCommand(List<AbstractGraphicObject> go) {
-        this.objects = new ArrayList<>(go);
+    public ListCommand(Symbols symbol) {
+        List<AbstractGraphicObject> objs;
+        switch (symbol) {
+            case ALL -> objs = singleton.getAll();
+            case GROUPS -> objs = singleton.getAllGroups();
+            default -> objs = singleton.getByType(symbol.name());
+        }
+        this.objects.addAll(objs);
     }
 
     @Override
