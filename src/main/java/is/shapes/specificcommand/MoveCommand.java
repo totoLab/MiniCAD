@@ -9,25 +9,24 @@ import java.awt.geom.Point2D;
 
 public class MoveCommand implements Command {
 
-	private  final Point2D oldPos;
+	protected final Point2D oldPos;
 
-	private  final Point2D newPos;
+	protected final Point2D newPos;
 
-	private  final GraphicObject object;
+	protected final GraphicObject object;
 	
 	public MoveCommand(GraphicObject go, Point2D pos) {
 		oldPos = go.getPosition();
 		newPos = pos;
 		this.object = go;
-		
-		
 	}
 
 	@Override
 	public boolean doIt() {
-		System.out.printf("%s with id %d moved to %s\n", object.getType(), ((AbstractGraphicObject) object).getId(), newPos);
-		object.moveTo(newPos);
+		AbstractGraphicObject obj = (AbstractGraphicObject) object;
+		System.out.printf("%s with id %d moved to %s\n", obj.getType(), obj.getId(), newPos);
 
+		object.moveTo(newPos);
 		return true;
 	}
 
