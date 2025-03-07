@@ -73,4 +73,8 @@ public final  class CircleObject extends AbstractGraphicObject {
 		return radius;
 	}
 
+	@Override
+	public String toString() {
+		return String.format("Circle with radius %f at (%f, %f)", radius, position.getX(), position.getY());
+	}
 }

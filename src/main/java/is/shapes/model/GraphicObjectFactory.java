@@ -29,7 +29,7 @@ public class GraphicObjectFactory {
         }
         else if (type instanceof Img) {
             Img img = (Img) type;
-            return new ImageObject(new ImageIcon(img.getPath().toString()), p);
+            return new ImageObject(img.getPath(), p);
         }
 
         throw new UnsupportedOperationException("Unsupported shape type: " + type.getClass().getName());

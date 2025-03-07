@@ -69,4 +69,9 @@ public final class RectangleObject extends AbstractGraphicObject {
 
 		return "Rectangle";
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Rectangle at (%f, %f) with dimensions: (%f, %f)", position.getX(), position.getY(), dim.getWidth(), dim.getHeight());
+	}
 }

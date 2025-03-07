@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
+import java.nio.file.Path;
 
 import javax.swing.ImageIcon;
 
@@ -11,16 +12,17 @@ public final class ImageObject extends AbstractGraphicObject {
 	private double factor = 1.0;
 
 	private final Image image;
-
+	private final Path path;
 	private Point2D position;
 
 	public Image getImage() {
 		return image;
 	}
 
-	public ImageObject(ImageIcon img, Point2D pos) {
+	public ImageObject(Path path, Point2D pos) {
 		position = new Point2D.Double(pos.getX(), pos.getY());
-		image = img.getImage();
+		this.path = path;
+		image = new ImageIcon(path.toString()).getImage();
 	}
 
 	@Override
@@ -68,15 +70,15 @@ public final class ImageObject extends AbstractGraphicObject {
 		return dim;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see is.shapes.GraphicObject#getType()
-	 */
 	@Override
 	public String getType() {
 
 		return "Image";
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Image (\"%s\") at (%f, %f)", path.toString(), position.getX(), position.getY());
 	}
 
 }

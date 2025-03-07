@@ -1,6 +1,7 @@
 package is.shapes.model;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class GraphicObjectSingleton {
 
@@ -30,9 +31,15 @@ public class GraphicObjectSingleton {
         return objects.values().stream().toList();
     }
 
-    public List<AbstractGraphicObject> getByType(Class<? extends AbstractGraphicObject> type) {
+    public List<AbstractGraphicObject> getAllGroups() {
         return objects.values().stream()
-                .filter(obj -> type.isAssignableFrom(obj.getClass())).toList();
+                .filter(o -> o.getType().equalsIgnoreCase("group"))
+                .collect(Collectors.toList());
+    }
+
+    public List<AbstractGraphicObject> getByType(String type) {
+        return objects.values().stream()
+                .filter(obj -> obj.getType().equalsIgnoreCase(type) ).toList();
     }
 
     public void clear() {
