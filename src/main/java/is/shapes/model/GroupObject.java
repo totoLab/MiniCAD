@@ -11,6 +11,12 @@ public class GroupObject extends AbstractGraphicObject implements Iterable<Abstr
 
     List<AbstractGraphicObject> objects = new LinkedList<>();
 
+    public GroupObject(List<Long> ids) {
+        ids.forEach(id -> objects.add(
+                GraphicObjectSingleton.getInstance().getById(id)
+        ));
+    }
+
     @Override
     public void moveTo(Point2D p) {
         objects.forEach(o -> o.moveTo(p));
@@ -44,7 +50,8 @@ public class GroupObject extends AbstractGraphicObject implements Iterable<Abstr
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append("[");
+        result.append(getId());
+        result.append(": [");
         for (Iterator<AbstractGraphicObject> it = objects.iterator(); it.hasNext(); ) {
             AbstractGraphicObject o = it.next();
             result.append(o.getId());

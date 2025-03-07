@@ -73,12 +73,12 @@ public final class ImageObject extends AbstractGraphicObject {
 	@Override
 	public String getType() {
 
-		return "Image";
+		return "Img";
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Image (\"%s\") at (%f, %f)", path.toString(), position.getX(), position.getY());
+		return String.format("%d: Image (\"%s\") at (%f, %f)", this.getId(), path.toString(), position.getX(), position.getY());
 	}
 
 }
