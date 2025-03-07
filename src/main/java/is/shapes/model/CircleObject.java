@@ -2,6 +2,7 @@ package is.shapes.model;
 
 import is.interpreter.ExpressionIF;
 import is.shapes.view.GraphicObjectPanel;
+import is.shapes.visitor.GraphicObjectVisitor;
 
 import java.awt.Dimension;
 import java.awt.geom.Dimension2D;
@@ -76,5 +77,10 @@ public final  class CircleObject extends AbstractGraphicObject {
 	@Override
 	public String toString() {
 		return String.format("Circle with radius %f at (%f, %f)", radius, position.getX(), position.getY());
+	}
+
+	@Override
+	public double accept(GraphicObjectVisitor visitor) {
+		return visitor.visit(this);
 	}
 }

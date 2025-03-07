@@ -1,5 +1,7 @@
 package is.shapes.model;
 
+import is.shapes.visitor.GraphicObjectVisitor;
+
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.geom.Dimension2D;
@@ -79,6 +81,11 @@ public final class ImageObject extends AbstractGraphicObject {
 	@Override
 	public String toString() {
 		return String.format("%d: Image (\"%s\") at (%f, %f)", this.getId(), path.toString(), position.getX(), position.getY());
+	}
+
+	@Override
+	public double accept(GraphicObjectVisitor visitor) {
+		return visitor.visit(this);
 	}
 
 }

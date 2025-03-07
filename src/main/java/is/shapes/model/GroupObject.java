@@ -1,5 +1,7 @@
 package is.shapes.model;
 
+import is.shapes.visitor.GraphicObjectVisitor;
+
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -64,5 +66,10 @@ public class GroupObject extends AbstractGraphicObject implements Iterable<Abstr
     @Override
     public Iterator<AbstractGraphicObject> iterator() {
         return objects.iterator();
+    }
+
+    @Override
+    public double accept(GraphicObjectVisitor visitor) {
+        return visitor.visit(this);
     }
 }

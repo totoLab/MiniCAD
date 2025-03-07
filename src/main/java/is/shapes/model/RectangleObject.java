@@ -1,5 +1,7 @@
 package is.shapes.model;
 
+import is.shapes.visitor.GraphicObjectVisitor;
+
 import java.awt.Dimension;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
@@ -73,5 +75,10 @@ public final class RectangleObject extends AbstractGraphicObject {
 	@Override
 	public String toString() {
 		return String.format("Rectangle at (%f, %f) with dimensions: (%f, %f)", position.getX(), position.getY(), dim.getWidth(), dim.getHeight());
+	}
+
+	@Override
+	public double accept(GraphicObjectVisitor visitor) {
+		return visitor.visit(this);
 	}
 }

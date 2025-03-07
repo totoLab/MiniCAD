@@ -1,6 +1,8 @@
 package is.shapes.model;
 
 
+import is.shapes.visitor.GraphicObjectVisitor;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -41,7 +43,7 @@ public abstract class AbstractGraphicObject implements GraphicObject, Cloneable 
 
 	}
 
-
+	public abstract double accept(GraphicObjectVisitor visitor);
 
 	@Override
 	public GraphicObject clone() {
