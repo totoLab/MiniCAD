@@ -33,6 +33,7 @@ public class RemoveObjectCommand implements Command {
             AbstractGraphicObject obj = removedObjects.get(i);
             GraphicObjectSingleton.getInstance().add(obj);
             panel.add(obj);
+            System.out.printf("Restored %s with id %d\n", obj.getType(), obj.getId());
         }
         return true;
     }
