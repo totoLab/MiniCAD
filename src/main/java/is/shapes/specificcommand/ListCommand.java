@@ -33,6 +33,7 @@ public class ListCommand implements Command {
         if (objects.size() == 1) {
             System.out.println(objects.getFirst().toString());
         } else {
+            // no need for visitor here since I don't go down the hierarchy
             StringBuilder result = new StringBuilder();
             result.append("[");
             for (Iterator<AbstractGraphicObject> it = objects.iterator(); it.hasNext(); ) {
