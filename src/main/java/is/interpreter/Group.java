@@ -18,9 +18,8 @@ public class Group implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         Command command = new GroupCommand(ids);
-        CommandHandler commandHandler = new NaiveCommandHandler();
-        commandHandler.handle(command);
+        handler.handle(command);
     }
 }

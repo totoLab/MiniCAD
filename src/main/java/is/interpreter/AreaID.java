@@ -16,9 +16,8 @@ public class AreaID extends Area {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         Command command = new AreaCommand(id);
-        CommandHandler handler = new NaiveCommandHandler();
         handler.handle(command);
     }
 }

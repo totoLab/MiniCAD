@@ -18,9 +18,8 @@ public class ListSymbol extends is.interpreter.List {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         Command command = new ListCommand(symbol);
-        CommandHandler handler = new NaiveCommandHandler();
         handler.handle(command);
     }
 }

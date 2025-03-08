@@ -21,10 +21,9 @@ public class New implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler commandHandler) {
         AbstractGraphicObject obj = GraphicObjectFactory.createGraphicObject(type, position);
         Command command = new NewObjectCmd(gpanel, obj);
-        CommandHandler commandHandler = new NaiveCommandHandler();
         commandHandler.handle(command);
     }
 

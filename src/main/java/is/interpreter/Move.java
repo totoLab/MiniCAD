@@ -28,10 +28,9 @@ public class Move implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         AbstractGraphicObject obj = GraphicObjectSingleton.getInstance().getById(id);
         Command command = new MoveCommand(obj, new PosAdapter(pos));
-        CommandHandler commandHandler = new NaiveCommandHandler();
-        commandHandler.handle(command);
+        handler.handle(command);
     }
 }

@@ -16,9 +16,8 @@ public class AreaSymbol extends Area {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         Command command = new AreaCommand(symbol);
-        CommandHandler handler = new NaiveCommandHandler();
         handler.handle(command);
     }
 }

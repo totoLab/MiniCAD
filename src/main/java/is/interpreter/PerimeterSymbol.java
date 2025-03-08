@@ -16,9 +16,8 @@ public class PerimeterSymbol extends Perimeter {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         Command command = new PerimeterCommand(symbol);
-        CommandHandler handler = new NaiveCommandHandler();
         handler.handle(command);
     }
 }

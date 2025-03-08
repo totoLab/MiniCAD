@@ -19,10 +19,9 @@ public class Scale implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         AbstractGraphicObject obj = GraphicObjectSingleton.getInstance().getById(id);
         Command command = new ScaleCommand(obj, scale);
-        CommandHandler commandHandler = new NaiveCommandHandler();
-        commandHandler.handle(command);
+        handler.handle(command);
     }
 }

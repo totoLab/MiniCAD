@@ -17,9 +17,8 @@ public class ListID extends List {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         Command command = new ListCommand(id);
-        CommandHandler handler = new NaiveCommandHandler();
         handler.handle(command);
     }
 }

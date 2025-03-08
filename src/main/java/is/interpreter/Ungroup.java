@@ -15,9 +15,8 @@ public class Ungroup implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel) {
+    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         Command command = new UngroupCommand(id);
-        CommandHandler handler = new NaiveCommandHandler();
         handler.handle(command);
     }
 }
