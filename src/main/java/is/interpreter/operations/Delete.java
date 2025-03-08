@@ -17,9 +17,8 @@ public class Delete implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
-        AbstractGraphicObject obj = GraphicObjectSingleton.getInstance().getById(id);
-        Command command = new RemoveCommand(gpanel, obj);
+    public void interpret(String input, CommandHandler handler) {
+        GraphicObjectPanel gpanel = GraphicObjectSingleton.getInstance().getPanel();
         Command command = new RemoveCommand(gpanel, id);
         handler.handle(command);
     }

@@ -3,7 +3,6 @@ package is.interpreter.base;
 import is.command.CommandHandler;
 import is.interpreter.ExpressionIF;
 import is.interpreter.SyntaxException;
-import is.shapes.view.GraphicObjectPanel;
 
 public class PosFloat implements ExpressionIF {
 
@@ -24,6 +23,6 @@ public class PosFloat implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
     }
 }

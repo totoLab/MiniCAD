@@ -2,7 +2,6 @@ package is.interpreter.base;
 
 import is.command.CommandHandler;
 import is.interpreter.ExpressionIF;
-import is.shapes.view.GraphicObjectPanel;
 
 public class Pos implements ExpressionIF {
 
@@ -27,6 +26,6 @@ public class Pos implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
     }
 }

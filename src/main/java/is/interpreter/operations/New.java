@@ -6,8 +6,7 @@ import is.command.CommandHandler;
 import is.interpreter.ExpressionIF;
 import is.interpreter.base.Pos;
 import is.interpreter.base.Shape;
-import is.shapes.model.AbstractGraphicObject;
-import is.shapes.model.GraphicObjectFactory;
+import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.specificcommand.NewCommand;
 import is.shapes.view.GraphicObjectPanel;
 
@@ -22,7 +21,8 @@ public class New implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler commandHandler) {
+    public void interpret(String input, CommandHandler commandHandler) {
+        GraphicObjectPanel gpanel = GraphicObjectSingleton.getInstance().getPanel();
         Command command = new NewCommand(gpanel, type, position);
         commandHandler.handle(command);
     }

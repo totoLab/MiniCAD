@@ -1,7 +1,6 @@
 package is.interpreter.base;
 
 import is.command.CommandHandler;
-import is.shapes.view.GraphicObjectPanel;
 
 public class Rectangle extends Shape {
 
@@ -17,7 +16,7 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler commandHandler) {
+    public void interpret(String input, CommandHandler commandHandler) {
 
     }
 }

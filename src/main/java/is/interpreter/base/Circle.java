@@ -1,7 +1,6 @@
 package is.interpreter.base;
 
 import is.command.CommandHandler;
-import is.shapes.view.GraphicObjectPanel;
 
 public class Circle extends Shape {
 
@@ -12,7 +11,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
 
     }
 

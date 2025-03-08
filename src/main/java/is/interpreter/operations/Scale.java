@@ -19,7 +19,7 @@ public class Scale implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
         Command command = new ScaleCommand(id, scale);
         handler.handle(command);
     }

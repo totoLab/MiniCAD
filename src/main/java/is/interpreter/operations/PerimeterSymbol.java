@@ -4,7 +4,6 @@ import is.command.Command;
 import is.command.CommandHandler;
 import is.interpreter.base.Symbols;
 import is.shapes.specificcommand.PerimeterCommand;
-import is.shapes.view.GraphicObjectPanel;
 
 public class PerimeterSymbol extends Perimeter {
 
@@ -15,7 +14,7 @@ public class PerimeterSymbol extends Perimeter {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
         Command command = new PerimeterCommand(symbol);
         handler.handle(command);
     }

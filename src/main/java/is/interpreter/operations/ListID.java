@@ -3,7 +3,6 @@ package is.interpreter.operations;
 import is.command.Command;
 import is.command.CommandHandler;
 import is.shapes.specificcommand.ListCommand;
-import is.shapes.view.GraphicObjectPanel;
 
 public class ListID extends List {
 
@@ -14,7 +13,7 @@ public class ListID extends List {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
         Command command = new ListCommand(id);
         handler.handle(command);
     }

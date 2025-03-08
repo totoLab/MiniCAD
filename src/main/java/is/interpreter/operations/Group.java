@@ -4,7 +4,6 @@ import is.command.Command;
 import is.command.CommandHandler;
 import is.interpreter.ExpressionIF;
 import is.shapes.specificcommand.GroupCommand;
-import is.shapes.view.GraphicObjectPanel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ public class Group implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
         Command command = new GroupCommand(ids);
         handler.handle(command);
     }

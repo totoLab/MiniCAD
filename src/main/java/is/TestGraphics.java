@@ -5,6 +5,7 @@ import is.command.HistoryCommandHandler;
 import is.interpreter.ExpressionIF;
 import is.interpreter.parsing.Parser;
 import is.shapes.model.CircleObject;
+import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.model.ImageObject;
 import is.shapes.model.RectangleObject;
 import is.shapes.view.*;
@@ -36,7 +37,7 @@ public class TestGraphics {
 
 		GraphicObjectLogger logger = new GraphicObjectLogger();
 
-		GraphicObjectPanel gpanel = new GraphicObjectPanel();
+		GraphicObjectPanel gpanel = GraphicObjectSingleton.getInstance().getPanel();
 
 		gpanel.setPreferredSize(new Dimension(400, 400));
 		GraphicObjectViewFactory.FACTORY.installView(RectangleObject.class, new RectangleObjectView());
@@ -76,7 +77,7 @@ public class TestGraphics {
 		try {
 			Parser parser = new Parser(new StringReader(input));
 			ExpressionIF expression = parser.getExpression();
-			if (expression != null) expression.interpret(null, gpanel, commandHandler);
+			if (expression != null) expression.interpret(null, commandHandler);
 		} catch (Exception e) {
 			System.out.println("ERR: " + e.getMessage());
 		}

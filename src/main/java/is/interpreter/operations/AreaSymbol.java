@@ -4,7 +4,6 @@ import is.command.Command;
 import is.command.CommandHandler;
 import is.interpreter.base.Symbols;
 import is.shapes.specificcommand.AreaCommand;
-import is.shapes.view.GraphicObjectPanel;
 
 public class AreaSymbol extends Area {
 
@@ -15,7 +14,7 @@ public class AreaSymbol extends Area {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
         Command command = new AreaCommand(symbol);
         handler.handle(command);
     }

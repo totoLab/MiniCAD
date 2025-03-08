@@ -4,7 +4,6 @@ import is.command.Command;
 import is.command.CommandHandler;
 import is.interpreter.ExpressionIF;
 import is.shapes.specificcommand.UngroupCommand;
-import is.shapes.view.GraphicObjectPanel;
 
 public class Ungroup implements ExpressionIF {
 
@@ -15,7 +14,7 @@ public class Ungroup implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
         Command command = new UngroupCommand(id);
         handler.handle(command);
     }

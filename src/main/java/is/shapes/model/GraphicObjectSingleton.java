@@ -1,5 +1,7 @@
 package is.shapes.model;
 
+import is.shapes.view.GraphicObjectPanel;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +12,8 @@ public class GraphicObjectSingleton {
     private static final GraphicObjectSingleton INSTANCE = new GraphicObjectSingleton();
 
     private final Map<Long, AbstractGraphicObject> objects = new HashMap<>();
+
+    private static final GraphicObjectPanel gpanel = new GraphicObjectPanel();
 
     private GraphicObjectSingleton() {}
 
@@ -43,6 +47,10 @@ public class GraphicObjectSingleton {
     public List<AbstractGraphicObject> getByType(String type) {
         return objects.values().stream()
                 .filter(obj -> obj.getType().equalsIgnoreCase(type) ).toList();
+    }
+
+    public GraphicObjectPanel getPanel() {
+        return gpanel;
     }
 
     public void clear() {

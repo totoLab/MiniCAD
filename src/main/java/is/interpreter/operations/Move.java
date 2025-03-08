@@ -5,10 +5,7 @@ import is.command.CommandHandler;
 import is.interpreter.ExpressionIF;
 import is.interpreter.base.Pos;
 import is.shapes.adapter.PosAdapter;
-import is.shapes.model.AbstractGraphicObject;
-import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.specificcommand.MoveCommand;
-import is.shapes.view.GraphicObjectPanel;
 
 public class Move implements ExpressionIF {
 
@@ -29,7 +26,7 @@ public class Move implements ExpressionIF {
     }
 
     @Override
-    public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
+    public void interpret(String input, CommandHandler handler) {
         Command command = new MoveCommand(id, new PosAdapter(pos));
         handler.handle(command);
     }
