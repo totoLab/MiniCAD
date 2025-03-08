@@ -13,9 +13,9 @@ public class RemoveCommand implements Command {
     private final GraphicObjectPanel panel;
     private final AbstractGraphicObject go;
     private final RemoveVisitor visitor;
-    public RemoveCommand(GraphicObjectPanel gpanel, AbstractGraphicObject go) {
+    public RemoveCommand(GraphicObjectPanel gpanel, Long id) {
         this.panel = gpanel;
-        this.go = go;
+        this.go = GraphicObjectSingleton.getInstance().getById(id);
         this.visitor = new RemoveVisitor(gpanel);
     }
 

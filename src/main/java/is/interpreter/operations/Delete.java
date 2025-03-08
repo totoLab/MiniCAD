@@ -20,6 +20,7 @@ public class Delete implements ExpressionIF {
     public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
         AbstractGraphicObject obj = GraphicObjectSingleton.getInstance().getById(id);
         Command command = new RemoveCommand(gpanel, obj);
+        Command command = new RemoveCommand(gpanel, id);
         handler.handle(command);
     }
 }
