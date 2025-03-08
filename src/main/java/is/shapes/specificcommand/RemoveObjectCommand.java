@@ -5,37 +5,35 @@ import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.model.GroupObject;
 import is.shapes.view.GraphicObjectPanel;
+import is.shapes.visitor.RemoveVisitor;
+
+import java.util.List;
 
 public class RemoveObjectCommand implements Command {
 
     private final GraphicObjectPanel panel;
     private final AbstractGraphicObject go;
-
+    private final RemoveVisitor visitor;
     public RemoveObjectCommand(GraphicObjectPanel gpanel, AbstractGraphicObject go) {
         this.panel = gpanel;
         this.go = go;
+        this.visitor = new RemoveVisitor(gpanel);
     }
 
     @Override
     public boolean doIt() {
-        if (go instanceof GroupObject) {
-            GroupObject group = (GroupObject) go;
-            for (AbstractGraphicObject child : group) {
-                GraphicObjectSingleton.getInstance().remove(child.getId());
-                System.out.printf("%s with id %d removed\n", child.getType(), child.getId());
-                panel.remove(child);
-            }
-        }
-        GraphicObjectSingleton.getInstance().remove(go.getId());
-        System.out.printf("%s with id %d removed\n", go.getType(), go.getId());
-        panel.remove(go);
+        go.accept(visitor);
         return true;
     }
 
     @Override
     public boolean undoIt() {
-        GraphicObjectSingleton.getInstance().add(go);
-        panel.add(go);
+        List<AbstractGraphicObject> removedObjects = visitor.getRemovedObjects();
+        for (int i = removedObjects.size() - 1; i >= 0; i--) {
+            AbstractGraphicObject obj = removedObjects.get(i);
+            GraphicObjectSingleton.getInstance().add(obj);
+            panel.add(obj);
+        }
         return true;
     }
 }
