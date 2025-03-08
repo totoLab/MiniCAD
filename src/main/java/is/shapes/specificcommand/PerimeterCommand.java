@@ -4,7 +4,7 @@ import is.command.Command;
 import is.interpreter.base.Symbols;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectSingleton;
-import is.shapes.visitor.PerimeterCalculator;
+import is.shapes.visitor.PerimeterVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +28,11 @@ public class PerimeterCommand implements Command {
 
     @Override
     public boolean doIt() {
-        PerimeterCalculator perimeterCalculator = new PerimeterCalculator();
+        PerimeterVisitor perimeterVisitor = new PerimeterVisitor();
         double perimeter = 0;
 
         for (AbstractGraphicObject object : objects) {
-            perimeter += object.accept(perimeterCalculator);
+            perimeter += object.accept(perimeterVisitor);
         }
 
         System.out.printf("Perimeter = %f\n", perimeter);

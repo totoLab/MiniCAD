@@ -3,34 +3,32 @@ package is.shapes.visitor;
 import is.shapes.model.*;
 
 import java.awt.geom.Dimension2D;
-import java.awt.geom.Point2D;
 
-public class AreaCalculator implements GraphicObjectVisitor {
+public class PerimeterVisitor implements GraphicObjectVisitor {
 
     @Override
     public double visit(CircleObject circle) {
-        return Math.PI * Math.pow(circle.getRadius(), 2);
+        return 2 * Math.PI * circle.getRadius();
     }
 
     @Override
     public double visit(RectangleObject rectangle) {
         Dimension2D dim = rectangle.getDimension();
-        return dim.getWidth() * dim.getHeight();
+        return dim.getWidth() * 2 + dim.getHeight() * 2;
     }
 
     @Override
     public double visit(ImageObject image) {
         Dimension2D dim = image.getDimension();
-        return dim.getWidth() * dim.getHeight();
+        return dim.getWidth() * 2 + dim.getHeight() * 2;
     }
 
     @Override
     public double visit(GroupObject group) {
-        double totalArea = 0;
+        double totalPerimeter = 0;
         for (AbstractGraphicObject obj : group) {
-            totalArea += obj.accept(this);
+            totalPerimeter += obj.accept(this);
         }
-        return totalArea;
+        return totalPerimeter;
     }
-
 }

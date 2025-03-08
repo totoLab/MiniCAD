@@ -4,7 +4,7 @@ import is.command.Command;
 import is.interpreter.base.Symbols;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectSingleton;
-import is.shapes.visitor.AreaCalculator;
+import is.shapes.visitor.AreaVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +28,11 @@ public class AreaCommand implements Command {
 
     @Override
     public boolean doIt() {
-        AreaCalculator areaCalculator = new AreaCalculator();
+        AreaVisitor areaVisitor = new AreaVisitor();
         double totalArea = 0;
 
         for (AbstractGraphicObject object : objects) {
-            totalArea += object.accept(areaCalculator);
+            totalArea += object.accept(areaVisitor);
         }
 
         System.out.printf("Area = %f\n", totalArea);
