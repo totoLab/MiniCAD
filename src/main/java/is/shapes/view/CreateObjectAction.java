@@ -5,9 +5,8 @@ import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
 import is.shapes.specificcommand.NewCommand;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
 
 public class CreateObjectAction extends AbstractAction {
 	/**

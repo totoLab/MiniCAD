@@ -2,13 +2,11 @@ package is.shapes.model;
 
 import is.shapes.visitor.GraphicObjectVisitor;
 
-import java.awt.Dimension;
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
 import java.nio.file.Path;
-
-import javax.swing.ImageIcon;
 
 public final class ImageObject extends AbstractGraphicObject {
 	private double factor = 1.0;

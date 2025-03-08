@@ -4,7 +4,6 @@ import is.shapes.visitor.GraphicObjectVisitor;
 
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;

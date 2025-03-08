@@ -3,7 +3,6 @@ package is.shapes.specificcommand;
 import is.command.Command;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
-import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.visitor.MoveVisitor;
 
 import java.awt.geom.Point2D;

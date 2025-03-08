@@ -5,7 +5,8 @@ import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.model.GroupObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UngroupCommand implements Command {
 

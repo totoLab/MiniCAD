@@ -5,13 +5,12 @@ import is.shapes.model.GraphicObject;
 import is.shapes.specificcommand.MoveCommand;
 import is.shapes.specificcommand.ScaleCommand;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.io.Serial;
-
-import javax.swing.*;
 
 public class GraphicObjectController extends JPanel {
 	/**

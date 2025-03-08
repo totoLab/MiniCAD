@@ -3,7 +3,7 @@ package is.shapes.view;
 import is.shapes.model.CircleObject;
 import is.shapes.model.GraphicObject;
 
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 

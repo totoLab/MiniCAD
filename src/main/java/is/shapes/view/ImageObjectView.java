@@ -3,8 +3,7 @@ package is.shapes.view;
 import is.shapes.model.GraphicObject;
 import is.shapes.model.ImageObject;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
 

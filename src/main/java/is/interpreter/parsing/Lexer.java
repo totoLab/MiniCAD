@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
 
-import static is.interpreter.parsing.Utils.*;
+import static is.interpreter.parsing.Utils.canBeFloat;
+import static is.interpreter.parsing.Utils.isInteger;
 
 public class Lexer {
 

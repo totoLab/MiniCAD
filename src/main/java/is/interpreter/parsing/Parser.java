@@ -1,6 +1,7 @@
 package is.interpreter.parsing;
 
-import is.interpreter.*;
+import is.interpreter.ExpressionIF;
+import is.interpreter.SyntaxException;
 import is.interpreter.base.*;
 import is.interpreter.operations.*;
 
@@ -10,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static is.interpreter.parsing.Utils.*;
+import static is.interpreter.parsing.Utils.canBeFloat;
 
 public class Parser {
 

@@ -4,17 +4,11 @@ import is.shapes.model.GraphicEvent;
 import is.shapes.model.GraphicObject;
 import is.shapes.model.GraphicObjectListener;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-
-import javax.swing.JComponent;
 
 public class GraphicObjectPanel extends JComponent implements GraphicObjectListener {
 

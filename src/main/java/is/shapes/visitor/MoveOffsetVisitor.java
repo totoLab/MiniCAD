@@ -1,7 +1,8 @@
 package is.shapes.visitor;
 
-import java.awt.geom.Point2D;
 import is.shapes.model.*;
+
+import java.awt.geom.Point2D;
 
 public class MoveOffsetVisitor implements GraphicObjectVisitor {
 

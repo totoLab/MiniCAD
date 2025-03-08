@@ -1,10 +1,8 @@
 package is.shapes.model;
 
-import is.interpreter.ExpressionIF;
-import is.shapes.view.GraphicObjectPanel;
 import is.shapes.visitor.GraphicObjectVisitor;
 
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Point2D;
 

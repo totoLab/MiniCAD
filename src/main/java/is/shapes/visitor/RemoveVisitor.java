@@ -2,7 +2,11 @@ package is.shapes.visitor;
 
 import is.shapes.model.*;
 import is.shapes.view.GraphicObjectPanel;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class RemoveVisitor implements GraphicObjectVisitor {
     private final GraphicObjectPanel panel;
