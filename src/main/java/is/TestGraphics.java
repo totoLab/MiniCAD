@@ -78,7 +78,7 @@ public class TestGraphics {
 			ExpressionIF expression = parser.getExpression();
 			if (expression != null) expression.interpret(null, gpanel, commandHandler);
 		} catch (Exception e) {
-			System.err.println(e);
+			System.out.println("ERR: " + e.getMessage());
 		}
 	}
 }

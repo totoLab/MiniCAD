@@ -26,6 +26,7 @@ public class GraphicObjectSingleton {
     }
 
     public AbstractGraphicObject getById(long id) {
+        if (!objects.containsKey(id)) throw new IllegalArgumentException("Object with id " + id + " not found");
         return objects.get(id);
     }
 
