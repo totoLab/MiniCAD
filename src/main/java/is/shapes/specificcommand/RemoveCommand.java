@@ -3,18 +3,17 @@ package is.shapes.specificcommand;
 import is.command.Command;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectSingleton;
-import is.shapes.model.GroupObject;
 import is.shapes.view.GraphicObjectPanel;
 import is.shapes.visitor.RemoveVisitor;
 
 import java.util.List;
 
-public class RemoveObjectCommand implements Command {
+public class RemoveCommand implements Command {
 
     private final GraphicObjectPanel panel;
     private final AbstractGraphicObject go;
     private final RemoveVisitor visitor;
-    public RemoveObjectCommand(GraphicObjectPanel gpanel, AbstractGraphicObject go) {
+    public RemoveCommand(GraphicObjectPanel gpanel, AbstractGraphicObject go) {
         this.panel = gpanel;
         this.go = go;
         this.visitor = new RemoveVisitor(gpanel);

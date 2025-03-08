@@ -1,18 +1,17 @@
 package is.shapes.specificcommand;
 
 import is.command.Command;
-import is.interpreter.ExpressionIF;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
 import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.view.GraphicObjectPanel;
 
-public class NewObjectCmd implements Command {
+public class NewCommand implements Command {
 
 	private final GraphicObjectPanel panel;
 	private final GraphicObject go;
 
-	public NewObjectCmd(GraphicObjectPanel panel, GraphicObject go) {
+	public NewCommand(GraphicObjectPanel panel, GraphicObject go) {
 		
 		this.panel = panel;
 		this.go = go;

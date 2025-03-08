@@ -8,7 +8,7 @@ import is.interpreter.base.Pos;
 import is.interpreter.base.Shape;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectFactory;
-import is.shapes.specificcommand.NewObjectCmd;
+import is.shapes.specificcommand.NewCommand;
 import is.shapes.view.GraphicObjectPanel;
 
 public class New implements ExpressionIF {
@@ -24,7 +24,7 @@ public class New implements ExpressionIF {
     @Override
     public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler commandHandler) {
         AbstractGraphicObject obj = GraphicObjectFactory.createGraphicObject(type, position);
-        Command command = new NewObjectCmd(gpanel, obj);
+        Command command = new NewCommand(gpanel, obj);
         commandHandler.handle(command);
     }
 

@@ -7,13 +7,13 @@ import is.shapes.visitor.MoveOffsetVisitor;
 
 import java.awt.geom.Point2D;
 
-public class MoveOffsettCommand implements Command {
+public class MoveOffsetCommand implements Command {
 
     private final AbstractGraphicObject go;
     private final Point2D offset;
     private final MoveOffsetVisitor visitor;
 
-    public MoveOffsettCommand(GraphicObject object, Point2D offset) {
+    public MoveOffsetCommand(GraphicObject object, Point2D offset) {
         this.go = (AbstractGraphicObject) object;
         this.offset = offset;
         this.visitor = new MoveOffsetVisitor();

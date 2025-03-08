@@ -3,7 +3,7 @@ package is.shapes.view;
 import is.command.CommandHandler;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
-import is.shapes.specificcommand.NewObjectCmd;
+import is.shapes.specificcommand.NewCommand;
 
 import java.awt.event.ActionEvent;
 
@@ -30,7 +30,7 @@ public class CreateObjectAction extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 
 		GraphicObject go = prototype.clone();
-		ch.handle(new NewObjectCmd(panel, go));
+		ch.handle(new NewCommand(panel, go));
 
 	}
 
