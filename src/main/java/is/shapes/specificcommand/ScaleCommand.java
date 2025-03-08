@@ -17,8 +17,8 @@ public class ScaleCommand implements Command {
 
 	@Override
 	public boolean doIt() {
-		System.out.printf("%s with id %d scaled with a factor of %f\n", object.getType(), ((AbstractGraphicObject) object).getId(), factor);
 		object.scale(factor);
+		System.out.printf("%s with id %d scaled with a factor of %f\n", object.getType(), ((AbstractGraphicObject) object).getId(), factor);
 		return true;
 	}
 

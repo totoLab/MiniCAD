@@ -34,7 +34,7 @@ public class RemoveObjectCommand implements Command {
 
     @Override
     public boolean undoIt() {
-        GraphicObjectSingleton.getInstance().remove(go.getId());
+        GraphicObjectSingleton.getInstance().add(go);
         panel.add(go);
         return true;
     }

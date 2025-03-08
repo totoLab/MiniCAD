@@ -24,9 +24,8 @@ public class MoveCommand implements Command {
 	@Override
 	public boolean doIt() {
 		AbstractGraphicObject obj = (AbstractGraphicObject) object;
-		System.out.printf("%s with id %d moved to %s\n", obj.getType(), obj.getId(), newPos);
-
 		object.moveTo(newPos);
+		System.out.printf("%s with id %d moved to %s\n", obj.getType(), obj.getId(), newPos);
 		return true;
 	}
 

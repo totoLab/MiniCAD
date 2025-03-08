@@ -29,6 +29,7 @@ public class NewObjectCmd implements Command {
 
 	@Override
 	public boolean undoIt() {
+		GraphicObjectSingleton.getInstance().remove(((AbstractGraphicObject) go).getId());
 		panel.remove(go);
 		return true;
 	}
