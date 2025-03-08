@@ -3,6 +3,7 @@ package is.shapes.specificcommand;
 import is.command.Command;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
+import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.visitor.MoveOffsetVisitor;
 
 import java.awt.geom.Point2D;
@@ -13,8 +14,8 @@ public class MoveOffsetCommand implements Command {
     private final Point2D offset;
     private final MoveOffsetVisitor visitor;
 
-    public MoveOffsetCommand(GraphicObject object, Point2D offset) {
-        this.go = (AbstractGraphicObject) object;
+    public MoveOffsetCommand(Long id, Point2D offset) {
+        this.go = GraphicObjectSingleton.getInstance().getById(id);
         this.offset = offset;
         this.visitor = new MoveOffsetVisitor();
     }

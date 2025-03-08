@@ -3,6 +3,7 @@ package is.shapes.specificcommand;
 import is.command.Command;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObject;
+import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.visitor.ScaleVisitor;
 
 public class ScaleCommand implements Command {
@@ -11,8 +12,8 @@ public class ScaleCommand implements Command {
 	private final double factor;
 	private final ScaleVisitor visitor;
 
-	public ScaleCommand(GraphicObject obj, double factor) {
-		object = (AbstractGraphicObject) obj;
+	public ScaleCommand(Long id, double factor) {
+		object = GraphicObjectSingleton.getInstance().getById(id);
 		this.factor = factor;
 		this.visitor = new ScaleVisitor();
 	}
