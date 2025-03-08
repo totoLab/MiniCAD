@@ -1,12 +1,11 @@
 package is.shapes.model;
 
-import is.interpreter.Circle;
-import is.interpreter.Img;
-import is.interpreter.Pos;
-import is.interpreter.Rectangle;
-import is.interpreter.Shape;
+import is.interpreter.base.Circle;
+import is.interpreter.base.Img;
+import is.interpreter.base.Pos;
+import is.interpreter.base.Rectangle;
+import is.interpreter.base.Shape;
 
-import javax.swing.*;
 import java.awt.geom.Point2D;
 import java.util.List;
 

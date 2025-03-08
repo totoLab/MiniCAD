@@ -1,6 +1,7 @@
-package is.interpreter;
+package is.interpreter.base;
 
 import is.command.CommandHandler;
+import is.interpreter.ExpressionIF;
 import is.shapes.view.GraphicObjectPanel;
 
 public class Pos implements ExpressionIF {

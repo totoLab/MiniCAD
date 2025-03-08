@@ -1,8 +1,9 @@
-package is.interpreter;
+package is.interpreter.operations;
 
 import is.command.Command;
 import is.command.CommandHandler;
-import is.command.NaiveCommandHandler;
+import is.interpreter.ExpressionIF;
+import is.interpreter.base.Pos;
 import is.shapes.adapter.PosAdapter;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectSingleton;

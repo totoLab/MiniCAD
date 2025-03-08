@@ -1,7 +1,7 @@
 package is.shapes.specificcommand;
 
 import is.command.Command;
-import is.interpreter.Symbols;
+import is.interpreter.base.Symbols;
 import is.shapes.model.AbstractGraphicObject;
 import is.shapes.model.GraphicObjectSingleton;
 import is.shapes.visitor.AreaCalculator;

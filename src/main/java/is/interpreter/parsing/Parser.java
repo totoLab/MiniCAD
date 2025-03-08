@@ -1,6 +1,8 @@
-package is.interpreter;
+package is.interpreter.parsing;
 
-import is.shapes.model.CircleObject;
+import is.interpreter.*;
+import is.interpreter.base.*;
+import is.interpreter.operations.*;
 
 import java.io.Reader;
 import java.nio.file.Path;
@@ -8,7 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static is.interpreter.Utils.*;
+import static is.interpreter.parsing.Utils.*;
 
 public class Parser {
 

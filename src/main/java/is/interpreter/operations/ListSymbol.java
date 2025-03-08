@@ -1,15 +1,12 @@
-package is.interpreter;
+package is.interpreter.operations;
 
 import is.command.Command;
 import is.command.CommandHandler;
-import is.command.NaiveCommandHandler;
-import is.shapes.model.AbstractGraphicObject;
-import is.shapes.model.GraphicObjectSingleton;
+import is.interpreter.base.Symbols;
 import is.shapes.specificcommand.ListCommand;
 import is.shapes.view.GraphicObjectPanel;
-import java.util.List;
 
-public class ListSymbol extends is.interpreter.List {
+public class ListSymbol extends List {
 
     Symbols symbol;
 

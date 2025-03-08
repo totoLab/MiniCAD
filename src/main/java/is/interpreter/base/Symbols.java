@@ -1,4 +1,4 @@
-package is.interpreter;
+package is.interpreter.base;
 
 public enum Symbols {
     NEW, DELETE, MOVE, OFFSET, SCALE, LIST, ALL, GROUPS, GROUP, UNGROUP,

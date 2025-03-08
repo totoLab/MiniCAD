@@ -1,6 +1,6 @@
 package is.shapes.adapter;
 
-import is.interpreter.Pos;
+import is.interpreter.base.Pos;
 
 import java.awt.geom.Point2D;
 

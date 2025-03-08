@@ -1,4 +1,6 @@
-package is.interpreter;
+package is.interpreter.parsing;
+
+import is.interpreter.base.Symbols;
 
 public class Utils {
 

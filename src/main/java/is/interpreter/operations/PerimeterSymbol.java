@@ -1,23 +1,22 @@
-package is.interpreter;
+package is.interpreter.operations;
 
 import is.command.Command;
 import is.command.CommandHandler;
-import is.command.NaiveCommandHandler;
-import is.shapes.specificcommand.AreaCommand;
+import is.interpreter.base.Symbols;
 import is.shapes.specificcommand.PerimeterCommand;
 import is.shapes.view.GraphicObjectPanel;
 
-public class PerimeterID extends Perimeter {
+public class PerimeterSymbol extends Perimeter {
 
-    private long id;
+    private Symbols symbol;
 
-    public PerimeterID(long id) {
-        this.id = id;
+    public PerimeterSymbol(Symbols symbol) {
+        this.symbol = symbol;
     }
 
     @Override
     public void interpret(String input, GraphicObjectPanel gpanel, CommandHandler handler) {
-        Command command = new PerimeterCommand(id);
+        Command command = new PerimeterCommand(symbol);
         handler.handle(command);
     }
 }

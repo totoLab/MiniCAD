@@ -1,8 +1,8 @@
-package is.interpreter;
+package is.interpreter.operations;
 
 import is.command.Command;
 import is.command.CommandHandler;
-import is.command.NaiveCommandHandler;
+import is.interpreter.ExpressionIF;
 import is.shapes.specificcommand.GroupCommand;
 import is.shapes.view.GraphicObjectPanel;
 
