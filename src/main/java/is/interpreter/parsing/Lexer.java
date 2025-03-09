@@ -11,13 +11,13 @@ import static is.interpreter.parsing.Utils.isInteger;
 
 public class Lexer {
 
-    StreamTokenizer tokenizer;
-    Symbols currentSymbol;
+    private StreamTokenizer tokenizer;
+    private Symbols currentSymbol;
 
-    String value;
-    double numberValue;
+    private String value;
+    private double numberValue;
 
-    Lexer(Reader in) {
+    public Lexer(Reader in) {
         tokenizer = new StreamTokenizer(in);
         tokenizer.resetSyntax();
         tokenizer.parseNumbers();
@@ -55,6 +55,7 @@ public class Lexer {
                         case "circle": currentSymbol = Symbols.CIRCLE; break;
                         case "rectangle": currentSymbol = Symbols.RECTANGLE; break;
                         case "img": currentSymbol = Symbols.IMG; break;
+                        default : currentSymbol = Symbols.INVALID; break;
                     }
                     break;
                 case StreamTokenizer.TT_NUMBER:
@@ -74,6 +75,10 @@ public class Lexer {
         } catch (IOException e) {
             currentSymbol = Symbols.EOF;
         }
+        return currentSymbol;
+    }
+
+    public Symbols getCurrentSymbol() {
         return currentSymbol;
     }
 

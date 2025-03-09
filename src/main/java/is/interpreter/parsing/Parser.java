@@ -15,8 +15,8 @@ import static is.interpreter.parsing.Utils.canBeFloat;
 
 public class Parser {
 
-    Lexer lexer;
-    ExpressionIF root;
+    private Lexer lexer;
+    private ExpressionIF root;
 
     public Parser(Reader reader) {
         lexer = new Lexer(reader);
@@ -124,7 +124,7 @@ public class Parser {
             )) break;
             else ids.add((long) Double.parseDouble(lexer.getValue()));
         }
-        if (lexer.currentSymbol.equals(Symbols.COMMA)) throw exception;
+        if (lexer.getCurrentSymbol().equals(Symbols.COMMA)) throw exception;
         return new Group(ids);
     }
 
