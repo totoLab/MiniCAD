@@ -51,13 +51,14 @@ public class TestGraphics {
 		f.pack();
 		f.setVisible(true);
 
-		List<String> initialCommands = new ArrayList<>();
-		initialCommands.add("new circle (5.0) (100, 100)");
-		initialCommands.add("new rectangle (25.0, 100) (200, 100)");
-		initialCommands.add("new circle (14) (300, 200)");
-		initialCommands.add("new img (\"src/main/java/is/shapes/model/NyaNya.gif\") (100, 300)");
-		for (String command : initialCommands) {
-			launch(command, gpanel, handler);
+		if (args.length > 0 && args[0].equals("--test")) {
+			List<String> initialCommands = new ArrayList<>();
+			initialCommands.add("new circle (5.0) (100, 100)");
+			initialCommands.add("new rectangle (25.0, 100) (200, 100)");
+			initialCommands.add("new circle (14) (300, 200)");
+			for (String command : initialCommands) {
+				launch(command, gpanel, handler);
+			}
 		}
 
 		Scanner scanner = new Scanner(System.in);
