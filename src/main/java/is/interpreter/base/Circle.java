@@ -4,7 +4,7 @@ import is.command.CommandHandler;
 
 public class Circle extends Shape {
 
-    PosFloat radius;
+    private PosFloat radius;
 
     public Circle(PosFloat x) {
         this.radius = new PosFloat(x.getValue());

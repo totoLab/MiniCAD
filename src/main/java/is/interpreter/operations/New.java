@@ -12,8 +12,8 @@ import is.shapes.view.GraphicObjectPanel;
 
 public class New implements ExpressionIF {
 
-    Shape type;
-    Pos position;
+    private Shape type;
+    private Pos position;
 
     public New(Shape typeConstructor, Pos pos) {
         this.type = typeConstructor;
@@ -25,6 +25,14 @@ public class New implements ExpressionIF {
         GraphicObjectPanel gpanel = GraphicObjectSingleton.getInstance().getPanel();
         Command command = new NewCommand(gpanel, type, position);
         commandHandler.handle(command);
+    }
+
+    public Pos getPosition() {
+        return position;
+    }
+
+    public Shape getType() {
+        return type;
     }
 
     @Override
