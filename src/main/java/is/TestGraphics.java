@@ -55,7 +55,7 @@ public class TestGraphics {
 		initialCommands.add("new circle (5.0) (100, 100)");
 		initialCommands.add("new rectangle (25.0, 100) (200, 100)");
 		initialCommands.add("new circle (14) (300, 200)");
-		initialCommands.add("new img (\"goku.jpg\") (100, 300)");
+		initialCommands.add("new img (\"src/main/java/is/shapes/model/NyaNya.gif\") (100, 300)");
 		for (String command : initialCommands) {
 			launch(command, gpanel, handler);
 		}
